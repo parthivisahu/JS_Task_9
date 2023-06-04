@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JS Task 9</title>
+    </head>
+    <style>
+        .container{
+            width: 600px;
+            padding: 50px;
+            background-color: rgb(170, 45, 101);
+            color: white;
+        }
+        .item{
+            padding: 50px;
+            font-size: 20px;
+            text-align: left;
+            background-color: rgb(122, 18, 89);
+        }
+        .form{
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .form input{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .form label{
+            display: inline-block;
+            width: 90px;
+            text-align: left;
+        }
+        select{
+            width: 210px;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        textarea{
+            width: 210px;
+            height: 50px;
+            border-radius: 4px;
+        }
+        .form-control{
+            width: 200px;
+        }
+        .btn{
+            padding: 5px;
+            width: 70%;
+            
+        }
+    </style>
+    <script>
+        function submit(){
+	var name =
+		document.forms.RegForm.name.value;
+	var email =
+		document.forms.RegForm.email.value;
+	var phone =
+		document.forms.RegForm.phone.value;
+	var gender =
+		document.forms.RegForm.gender.value;
+	var password =
+		document.forms.RegForm.password.value;
+    var language =
+        document.forms.RegForm.language.value;
+
+	//Javascript reGex for Email Validation.
+	var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+	// Javascript reGex for Phone Number validation.
+	var regPhone=/^\d{10}$/;					
+	// Javascript reGex for Name validation
+	var regName = /\d+$/g;	
+    
+
+
+	if (name == "" || regName.test(name)) {
+		window.alert("Please enter your name properly.");
+		name.focus();
+		return false;
+	}
+	
+	if (email == "" || !regEmail.test(email)) {
+		window.alert("Please enter a valid e-mail address.");
+		email.focus();
+		return false;
+	}
+   
+	
+	if (password == "") {
+		alert("Please enter your password");
+		password.focus();
+		return false;
+	}
+
+	if(password.length <6){
+		alert("Password should be atleast 6 character long");
+		password.focus();
+		return false;
+
+	}
+	if (phone == "" || !regPhone.test(phone)) {
+		alert("Please enter valid phone number.");
+		phone.focus();
+		return false;
+	}
+
+	if (language.selectedIndex == -1) {
+		alert("Please enter your course.");
+		what.focus();
+		return false;
+	}
+
+	return true;
+} {
+	var name =
+		document.forms.RegForm.name.value;
+	var email =
+		document.forms.RegForm.email.value;
+	var phone =
+		document.forms.RegForm.phone.value;
+	var gender =
+		document.forms.RegForm.gender.value;
+	var password =
+		document.forms.RegForm.password.value;
+	var address =
+        document.forms.RegForm.address.value;
+
+
+	if (name == "" || regName.test(name)) {
+		window.alert("Please enter your name properly.");
+		name.focus();
+		return false;
+	}
+
+	
+	
+	if (email == "" || !regEmail.test(email)) {
+		window.alert("Please enter a valid e-mail address.");
+		email.focus();
+		return false;
+	}
+	
+	if (password == "") {
+		alert("Please enter your password");
+		password.focus();
+		return false;
+	}
+
+	if(password.length <6){
+		alert("Password should be atleast 6 character long");
+		password.focus();
+		return false;
+
+	}
+	if (phone == "" || !regPhone.test(phone)) {
+		alert("Please enter valid phone number.");
+		phone.focus();
+		return false;
+	}
+
+	if (gender.selectedIndex == -1) {
+		alert("Please enter your course.");
+		what.focus();
+		return false;
+	}
+
+	return true;
+}
+
+    </script>
+    <body>
+        <div class="container">
+            <div class="item">
+                <form name="RegForm" onsubmit="return submit()" action="#">
+                    <div class="form">
+                    <label for="name" class="form-label" >Name: </label>
+                    <input type="text" class = "form-control" id = "name" name="name" required/>
+                    </div>
+                    <div class="form">
+                    <label for="email" class="form-label">Email: </label>
+                    <input type="email" class="form-control"  id="email" name="email" required />
+                    </div>
+                    <div class="form">
+                        <label for="password" class="form-label">Password: </label>
+                        <input type="password" class="form-control" id="password" name="password" required />
+                    </div>    
+                    <div class="form">
+                        <label for="phone" class="form-label">Phone Number: </label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required />
+                    </div>
+                    <div class="form">
+                        <label  for="gender" class="form-label">Gender: </label>
+                        <input type="radio" class="form-controls" id="gender" name="gender" required />
+                        <label for="male" class="form-label">Male</label>
+                        <input type="radio" class="form-controls" id="female" name="gender" required />
+                        <label for="female" class="form-label">Female</label>
+                        <input type="radio" class="form-controls" id="other" name="gender" required />
+                        <label for="other" class="form-label">Other</label>
+                    </div>
+                    <div class="form">
+                        <label for="language" class="form-label">Language: </label>
+                        <select name="language" class="form-control">
+                            <option value=""> Select language </option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="English">English</option>
+                            <option value="french">French</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form">
+                        <label for="zip" class="form-label">Zip Code: </label>
+                        <input type="number" class="form-control" id="zip" name="zip" required />
+                    </div>
+                    <div class="form">
+                        <label for="about" class="form-label">About: </label>
+                        <textarea class="form-control" id="about" name="about" placeholder="Write about yourself..."></textarea>
+                    </div>
+                    <input type="submit" class="btn" value="Register">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
